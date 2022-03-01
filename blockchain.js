@@ -1,6 +1,5 @@
 let calculateHash = require('./utils');
 let Block = require('./block');
-const { timingSafeEqual } = require('crypto');
 
 class Blockchain {
   constructor(genesisBlock, chain, difficulty) {
