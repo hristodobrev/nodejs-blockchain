@@ -1,10 +1,7 @@
-const crypto = require('crypto');
-const MerkleNode = require('./merkle-node');
-
 const getHash = (value) =>
   crypto.createHash('sha256').update(value.toString()).digest('hex');
 
-function createTree(arr) {
+const createRoot = (arr) => {
   if (arr.length === 0) return null;
 
   if (arr.length === 1) return arr[0];
@@ -23,5 +20,7 @@ function createTree(arr) {
     list.push(newNode);
   }
 
-  return createTree(list);
-}
+  return createRoot(list);
+};
+
+module.exports = { getHash, createRoot };
